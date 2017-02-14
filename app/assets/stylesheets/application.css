@@ -6,10 +6,253 @@
  * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
  *
  *= require_tree .
  *= require_self
  */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  background: #000;
+  font-family: "Oxygen", sans-serif;
+}
+
+.header {
+  background: url('http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/bg.png') rgba(0,0,0,0.8);
+  background-size: 40px 80px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  height: 80px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.header h1 {
+  text-indent: -9999px;
+}
+
+.header img {
+  margin: 20px 0;
+}
+
+.container {
+  margin: 0 auto 0;
+  width: 960px;
+}
+
+/*
+  MOVIES
+*/
+
+.hero {
+  background: url('http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/interstellar-hero.jpg');
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+}
+
+.main h2 {
+  color: #0393ff;
+  padding: 40px 0 40px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+}
+
+.main p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.hero h2 {
+  color: #fff;
+  padding: 160px 0 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+}
+
+.hero p {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: #fff;
+  display: block;
+    display: -webkit-box;
+  max-height: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 30%;
+}
+
+.hero a {
+  background-color: #0393ff;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  margin: 20px 0 0 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  width: 120px;
+}
+
+.hero a:hover {
+  background-color: #0073ad;
+  transition: background-color 0.5s;
+}
+
+h3,
+h3 a {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  line-height: 18px;
+  margin: 12px 0 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.movie, .actor {
+  display: block;
+  float: left;
+  margin: 0 10px 80px 0;
+  margin-bottom: 80px;
+  width: 184px;
+}
+
+.actor {
+  height: 350px;
+}
+
+.movie {
+  height: 450px;
+}
+
+.movie:nth-child(5n + 6), .actor:nth-child(5n + 6)  {
+  margin: 0 0 80px 0;
+}
+
+.movie img, .actor img {
+  width: 100%;
+}
+
+.movie a,
+.actor a {
+  color: #0393ff;
+  text-decoration: none;
+}
+
+p.year {
+  color: #bcbec0;
+}
+
+/* 
+  MOVIE SHOW
+*/
+.movie-show .movie, .actor-index, .actor-show .actor {
+  padding: 160px 0 0 0;
+  width: 100%;
+}
+
+.movie-show .movie img, .actor-show .actor img {
+  float: left;
+  width: 184px;
+}
+
+.movie-show .movie h3, .actor-show .actor h3 {
+  color: #0393ff;
+  font-size: 40px;
+  height: auto;
+  line-height: 40px;
+}
+
+.info {
+  display: block;
+  float: left;
+  margin: 0 0 0 40px;
+  width: calc(100% - 224px);
+}
+
+.movie-show .movie p {
+  display: block;
+}
+
+.movie-show .movie p.year {
+  margin: 0 0 20px 0;
+}
+
+/* 
+  MEDIA QUERIES
+*/
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 0 20px;
+    width: calc(100% - 40px);
+  }
+
+  .hero h2 {
+    padding: 250px 0 0 0;
+  }
+
+  .hero p {
+    width: 50%;
+  }
+
+  .movie, .actor {
+    width: calc(25% - 10px);
+  }
+
+  .movie h3 {
+    font-size: 15px;
+  }
+
+  .movie a,
+  .actor a {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .movie a,
+  .actor a {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .movie, .actor {
+    width: calc(50% - 10px);
+  }
+
+  .info {
+    margin: 0 0 0 20px;
+    width: calc(100% - 204px);
+  }
+
+  .movie-show .movie h3, .actor-show .actor h3 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .movie a,
+  .actor a {
+    font-size: 14px;
+  }
+}

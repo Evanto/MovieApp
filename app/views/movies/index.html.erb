@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bolt Movie Database</title>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>  
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="header">
-      <div class="container">
-        <img src="http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/logo.svg" height="40">
-        <h1>Bolt Movie Database</h1>
-      </div>
+<div class="hero">
+  <div class="container">
+    <h2>Interstellar</h2>
+    <p>Former NASA pilot Cooper (Matthew McConaughey) and a team of researchers travel across the galaxy to find out which of three planets could be mankind's new home.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="container">
+  <h2>Popular Films</h2>
+    <% @movies.each do |movie| %>
+    <div class="movie">
+      <%= image_tag movie.image %>
+      <h3><%= movie.title %></h3>
+      <p><%= movie.release_year %></p>
+      <p><%= movie.plot %></p>
+      <%= link_to "Learn more", movie_path(movie) %>
     </div>
-
-    <%= yield %>
-
-  </body>
-</html>
+    <% end %>
+  </div>
+</div>
